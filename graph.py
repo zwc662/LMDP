@@ -111,7 +111,7 @@ class graph():
 
 
     def bfs(self, v):	
-        print("BFS ", v.s)
+        #print("BFS ", v.s)
         for v_ in range(self.num_V):
             if v_ != v.s and v.W[v_] + v.dist < self.V[v_].dist:
                 if self.V[v_].token is True:

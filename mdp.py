@@ -157,8 +157,10 @@ class mdp():
             self.T[a] = sparse.bsr_matrix(self.T[a])
             self.T[a] = sparse.diags(1.0/self.T[a].sum(axis = 1).A.ravel()).dot(self.T[a])
 
-    def set_policy_random(self):
-        self.policy = np.random.random((len(self.S), len(self.A))) 
+    def set_policy_random(self, init = False):
+        if init is False:
+            self.policy = np.random.random((len(self.S), len(self.A))) 
+        assert self.policy.shape == (len(self.S), len(self.A))
         self.policy = self.policy/np.reshape(np.linalg.norm(self.policy, axis = 1, ord = 1), [len(self.S), 1])
         self.P = sparse.bsr_matrix(np.zeros([len(self.S), len(self.S)], dtype=float))
         '''
