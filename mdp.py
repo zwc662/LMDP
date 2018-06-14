@@ -33,8 +33,11 @@ class mdp():
         self.policy = None
         # Policy is a |S|x|A| matrix of distributions actions for each states
         self.targets = list()
+        self.target = self.S[-1]
         # A list of absorbing target state to be reached, may be empty
         self.starts = list()
+        self.start = self.S[-2]
+    
         # A list of initial states
         self.unsafes = list()
         # A list of unsafe states
