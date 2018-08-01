@@ -1,0 +1,18 @@
+import os, sys, inspect
+from mdp import mdp
+from graph import graph
+from gridworld import gridworld
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    D = gridworld()
+    D.build_mdp_from_file()
+    G = graph()
+    G.build_from_mdp(D.M)
+    print(G.V)
+    print(G.E)
